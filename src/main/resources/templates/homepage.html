@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>TechBlog</title>
+  <style>
+  body{
+    margin-left:15px;
+  }
+    #users{
+      margin-top:70px;
+    }
+  </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div id="users">
+<a name="login" href="/users/login">Login</a>
+<a name="register" href="/users/registration">Register</a>
+</div>
+<h1>All Technical Posts</h1>
+<div th:each="post : ${posts}">
+  <h3 th:text="${post.title}"></h3>
+  <i>Posted On</i>
+  <span th:text="${#dates.format(post.date,'dd-MMM-yyyy')}"> 22-May-2018</span>
+  <p th:text="${post.content}"></p>
+</div>
+<br/>
+ <div th:replace="fragments/footer :: footer">&copy; 2016 The Static Templates</div>
+</body>
+</html>

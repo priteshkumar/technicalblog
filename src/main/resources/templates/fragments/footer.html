@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <!--/*  Multiple fragments may be defined in one file */-->
+    <div th:fragment="footer" th:align="center">
+        &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2017</span>
+        <span>My Awesome App</span>
+    </div>
+    <div th:fragment="footer-admin" th:align="center">
+        &copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2017</span>
+        <span>My Awesome App </span><span th:text="${@environment.getProperty('app.version')}"></span>
+    </div>
+</body>
+</html>
+
