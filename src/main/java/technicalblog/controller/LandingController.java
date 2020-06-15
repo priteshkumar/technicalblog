@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import technicalblog.model.Post;
 import technicalblog.model.User;
 import technicalblog.service.PostService;
@@ -53,13 +54,17 @@ public class LandingController {
    * @return : redirect url String
    */
   @PostMapping("/users/login")
-  public String getLoggedinView(@ModelAttribute User user) {
+  public String getLoggedinView(@ModelAttribute User user,
+      RedirectAttributes ra) {
     //System.out.println("inside post login data");
     if (user.getUsername().length() < 2 || user.getUsername().length() > 30
         || user.getPassword()
         .length() < 4) {
       return "redirect:/users/registration";
     }
+
+    //ra.addAttribute("username", user.getUsername());
+    ra.addFlashAttribute("username", user.getUsername());
     return "redirect:/posts";
   }
 

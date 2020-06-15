@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import technicalblog.service.PostService;
 
 /**
@@ -24,7 +26,9 @@ public class PostController {
   private PostService postService;
 
   @GetMapping("/posts")
-  public String getUserPosts(Model model){
+  public String getUserPosts( @ModelAttribute("username") String username,
+      Model model){
+    model.addAttribute("username",username);
     model.addAttribute("posts",postService.getUserPosts());
     return "users/posts";
   }
