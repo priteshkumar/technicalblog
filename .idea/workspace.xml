@@ -11,10 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4ccd1cb-2f4b-4b16-9419-bc75ae9e7b4b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +44,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="46" />
-    <option name="y" value="23" />
-    <option name="width" value="1222" />
-    <option name="height" value="777" />
-  </component>
   <component name="ProjectId" id="1dGctq0inpe7kjw2M90H9kzbzjB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,7 +63,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Application.TechnicalBlogApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -165,76 +166,56 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1592221941267">
+    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1592369560560">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1592221941267" />
+    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1592369560560" />
     <state x="835" y="452" key="Github.ShareDialog" timestamp="1592199740833">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="835" y="452" key="Github.ShareDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1592199740833" />
-    <state width="1807" height="402" key="GridCell.Tab.0.bottom" timestamp="1592207140662">
+    <state width="1807" height="402" key="GridCell.Tab.0.bottom" timestamp="1592320803400">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140662" />
-    <state width="1807" height="402" key="GridCell.Tab.0.center" timestamp="1592207140660">
+    <state width="1807" height="402" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803400" />
+    <state width="1807" height="402" key="GridCell.Tab.0.center" timestamp="1592320803398">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140660" />
-    <state width="1807" height="402" key="GridCell.Tab.0.left" timestamp="1592207140659">
+    <state width="1807" height="402" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803398" />
+    <state width="1807" height="402" key="GridCell.Tab.0.left" timestamp="1592320803396">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140659" />
-    <state width="1807" height="402" key="GridCell.Tab.0.right" timestamp="1592207140661">
+    <state width="1807" height="402" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803396" />
+    <state width="1807" height="402" key="GridCell.Tab.0.right" timestamp="1592320803399">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140661" />
-    <state width="1807" height="402" key="GridCell.Tab.1.bottom" timestamp="1592207140666">
+    <state width="1807" height="402" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803399" />
+    <state width="1807" height="402" key="GridCell.Tab.1.bottom" timestamp="1592320803408">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140665" />
-    <state width="1807" height="402" key="GridCell.Tab.1.center" timestamp="1592207140664">
+    <state width="1807" height="402" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803408" />
+    <state width="1807" height="402" key="GridCell.Tab.1.center" timestamp="1592320803404">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140664" />
-    <state width="1807" height="402" key="GridCell.Tab.1.left" timestamp="1592207140663">
+    <state width="1807" height="402" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803404" />
+    <state width="1807" height="402" key="GridCell.Tab.1.left" timestamp="1592320803402">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140663" />
-    <state width="1807" height="402" key="GridCell.Tab.1.right" timestamp="1592207140665">
+    <state width="1807" height="402" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803402" />
+    <state width="1807" height="402" key="GridCell.Tab.1.right" timestamp="1592320803406">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="402" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592207140665" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1592237549130">
+    <state width="1807" height="402" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1592320803406" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1592314511465">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1592237549130" />
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1592314511465" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1592309211722">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1592309211722" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class</url>
-          <line>265</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class</url>
-          <line>268</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class</url>
-          <line>275</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class</url>
-          <line>276</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="org.springframework.beans.factory.support.DefaultListableBeanFactory" fieldName="singletonBeanNamesByType" />

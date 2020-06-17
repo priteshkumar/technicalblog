@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="site-head"></head>
+<head th:fragment="site-head">
+  <title>TechBlogs.com</title>
+  <style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333333;
+  }
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  </style>
+</head>
 <body>
 <header th:fragment="logged-out" th:remove="tag">
   <header>
-  <a href="login.html" th:href="@{/users/login}">Login</a>
-  <a href="register.html" th:href="@{/users/registration}">Register</a>
+    <ul>
+      <li>
+        <a href="login.html" th:href="@{/users/login}">Login</a>
+      </li>
+    <li>
+      <a href="register.html" th:href="@{/users/registration}">Register</a>
+    </li>
+    </ul>
   </header>
 </header>
 <header th:fragment="logged-in" th:remove="tag">
   <header>
-    <form method="post">
-      <input type="submit" value="Logout"/>
-    </form>
+    <ul>
+      <li>
+        <a th:href="@{/posts/create}" th:text="'AddPost'"></a>
+      </li>
+      <li>
+        <a th:href="@{/users/logout}" th:text="'Logout'"></a>
+      </li>
+    </ul>
   </header>
 </header>
 </body>

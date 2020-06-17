@@ -3,9 +3,19 @@ package technicalblog.model;
 import java.util.Date;
 
 public class Post {
+
   private String title;
   private String content;
   private Date date;
+  private String author;
+
+  public String getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
 
   public String getTitle() {
     return title;

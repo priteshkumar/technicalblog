@@ -5,8 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import technicalblog.model.Post;
 import technicalblog.service.PostService;
 
 /**
@@ -29,7 +33,21 @@ public class PostController {
   public String getUserPosts( @ModelAttribute("username") String username,
       Model model){
     model.addAttribute("username",username);
-    model.addAttribute("posts",postService.getUserPosts());
+    model.addAttribute("posts",postService.getUserPosts(username));
     return "users/posts";
   }
+
+  @GetMapping("/posts/create")
+  public String createUserPost(Model model){
+      //model.addAttribute("username")
+      return "users/createpost";
+  }
+
+  @PostMapping("/posts/create")
+  public String savePost(Post post, RedirectAttributes ra){
+    postService.savePost(post);
+    ra.addFlashAttribute("username","mavixk");
+    return "redirect:/posts";
+  }
+
 }

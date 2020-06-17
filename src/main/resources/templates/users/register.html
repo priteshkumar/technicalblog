@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
   <title>TechBlog</title>
 </head>
+<header th:replace="fragments/layout :: logged-out"></header>
 <body>
-<a name="login" href="/users/login">Login</a>
-<a name="register" href="/users/registration">Register</a>
 <h1>Please Register:</h1>
-<form action="/users/registration" method="post">
+<form th:action="@{/users/registration}" th:object="${User}" method="post">
   <label for="username">Username:</label>
   <input type="text" id="username" name="username">
-  <label for="pwd">Password:</label>
-  <input type="password" id="pwd" name="pwd">
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
   <label for="fullname">FullName:</label>
   <input type="text" id="fullname" name="fullname">
   <input type="submit" value="Register">

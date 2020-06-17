@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>TechBlog</title>
- </head>
-<body>
+<head th:replace="fragments/layout :: site-head"></head>
 <header th:replace="fragments/layout :: logged-out"></header>
+<body>
 <h1>All Technical Posts</h1>
 <div th:each="post : ${posts}">
   <h3 th:text="${post.title}"></h3>
@@ -12,7 +10,5 @@
   <span th:text="${#dates.format(post.date,'dd-MMM-yyyy')}"> 22-May-2018</span>
   <p th:text="${post.content}"></p>
 </div>
-<br/>
- <div th:replace="fragments/footer :: footer">&copy; 2016 The Static Templates</div>
 </body>
 </html>

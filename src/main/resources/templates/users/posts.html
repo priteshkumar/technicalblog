@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/layout :: site-head">
-  <title>Spring MVC Application - User Posts</title>
-</head>
+<head th:replace="fragments/layout :: site-head"></head>
 <header th:replace="fragments/layout :: logged-in"></header>
 <body>
 <h1 th:text="'Welcome ' + ${username} + ' Your Tech Posts!'"></h1>

@@ -6,6 +6,7 @@
 <body>
 <header th:replace="fragments/layout :: logged-out"></header>
 <h1>Please Login:</h1>
+<h3 th:if="${invalidAuth}"><i>Invalid login!</i></h3>
 <form th:action="@{/users/login}" th:object="${user}" method="post">
   <label for="username">Username:</label>
   <input type="text" id="username" th:field="*{username}" name="username">

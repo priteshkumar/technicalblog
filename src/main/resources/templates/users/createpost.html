@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>TechBlog</title>
+  <style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333333;
+  }
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body>
+<header th:replace="fragments/layout :: logged-in"></header>
+<h3>Create your post!</h3>
+<form th:action="@{/posts/create}" th:object="${Post}" method="post">
+  <label for="title">Title</label>
+  <input type="text" id="title" name="title"><br/>
+  <label for="content">Content</label>
+  <input type="text" id="content" name="content"><br/>
+  <input type="submit" value="Save">
+</form>
+</body>
+</html>

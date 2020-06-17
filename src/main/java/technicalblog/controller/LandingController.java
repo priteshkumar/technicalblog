@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import technicalblog.model.Post;
 import technicalblog.model.User;
@@ -18,6 +19,9 @@ public class LandingController {
 
   @Autowired
   private PostService postService;
+
+  @Autowired
+  private UserService userService;
 
   public LandingController() {
     System.out
@@ -39,9 +43,28 @@ public class LandingController {
   }
 
   @GetMapping("/users/login")
-  public String getLoginView(Model model) {
+  public String getLoginView(
+      @ModelAttribute("invalidAuth") String invalidAuth
+      , Model model) {
+    //   System.out.println(invalidAuth.length() + " " + invalidAuth);
+    //System.out.println(invalidAuth.equals(""));
+    if (!invalidAuth.equals("")) {
+      model.addAttribute("invalidAuth", invalidAuth);
+    } else {
+      model.addAttribute("invalidAuth", "false");
+    }
     model.addAttribute("user", new User());
     return "users/login";
+  }
+
+  @RequestMapping(value = "/users/registration", method = RequestMethod.POST)
+  public String registerUser(User user) {
+    System.out.println(user.getFullname() + " " + user.getUsername());
+    if (!userService.registerUser(user)) {
+      return "redirect:/users/registration";
+    }
+    postService.addUserKey(user);
+    return "redirect:/users/login";
   }
 
   /**
@@ -56,11 +79,10 @@ public class LandingController {
   @PostMapping("/users/login")
   public String getLoggedinView(@ModelAttribute User user,
       RedirectAttributes ra) {
-    //System.out.println("inside post login data");
-    if (user.getUsername().length() < 2 || user.getUsername().length() > 30
-        || user.getPassword()
-        .length() < 4) {
-      return "redirect:/users/registration";
+    if (!userService.verifyUser(user)) {
+    //  System.out.println("add invalidauth");
+      ra.addFlashAttribute("invalidAuth", Boolean.valueOf(true));
+      return "redirect:/users/login";
     }
 
     //ra.addAttribute("username", user.getUsername());
@@ -68,12 +90,8 @@ public class LandingController {
     return "redirect:/posts";
   }
 
-  @PostMapping("/users/logout")
-  public String loginUser(@RequestParam("username") String username,
-      @RequestParam("password") String password) {
-    if (!username.equals("mavixk") || !password.equals("kasper")) {
-      return "users/register";
-    }
-    return "users/techblog";
+  @GetMapping("/users/logout")
+  public String logoutUser() {
+    return "redirect:/";
   }
 }
