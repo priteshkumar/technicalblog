@@ -1,5 +1,6 @@
 package technicalblog.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,13 @@ public class LandingController {
 
   @GetMapping("/")
   public String getHomeView(Model model) {
-    List<Post> posts = postService.getAllPosts();
-    model.addAttribute("posts", posts);
+    List<Post> posts = null;
+    try {
+      posts = postService.getAllPosts();
+      model.addAttribute("posts", posts);
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
     return "homepage";
   }
 
@@ -70,9 +76,8 @@ public class LandingController {
   /**
    * requested url : "<serverip:port>/users/login" request method: POST
    *
-   * @param : user , contains form input data Action : - verifies
-   *          username/password - on success redirects user to
-   *          "<serverip:port>/posts" url - on failure redirects to user
+   * @param : user , contains form input data Action : - verifies username/password - on success
+   *          redirects user to "<serverip:port>/posts" url - on failure redirects to user
    *          registration url
    * @return : redirect url String
    */
@@ -80,7 +85,7 @@ public class LandingController {
   public String getLoggedinView(@ModelAttribute User user,
       RedirectAttributes ra) {
     if (!userService.verifyUser(user)) {
-    //  System.out.println("add invalidauth");
+      //  System.out.println("add invalidauth");
       ra.addFlashAttribute("invalidAuth", Boolean.valueOf(true));
       return "redirect:/users/login";
     }

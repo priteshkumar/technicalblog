@@ -6,7 +6,7 @@
 <header th:replace="fragments/layout :: logged-out"></header>
 <body>
 <h1>Please Register:</h1>
-<form th:action="@{/users/registration}" th:object="${User}" method="post">
+<form th:action="@{/users/registration}" th:object="${user}" method="post">
   <label for="username">Username:</label>
   <input type="text" id="username" name="username">
   <label for="password">Password:</label>
