@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 public class Post {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id")
   private Integer id;
 
@@ -57,5 +60,10 @@ public class Post {
 
   public void setDate(LocalDate date) {
     this.localDate = date;
+  }
+
+  @Override
+  public String toString(){
+    return this.id + " " + this.title + " " + this.author;
   }
 }

@@ -11,12 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4ccd1cb-2f4b-4b16-9419-bc75ae9e7b4b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/TechnicalBlogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/TechnicalBlogApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -59,6 +65,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="technicalblog.repository" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.TechnicalBlogApplication">
     <configuration default="true" type="Applet" factoryName="Applet">

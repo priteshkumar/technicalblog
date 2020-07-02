@@ -1,6 +1,6 @@
 package technicalblog.controller;
 
-import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,12 +34,9 @@ public class LandingController {
   @GetMapping("/")
   public String getHomeView(Model model) {
     List<Post> posts = null;
-    try {
-      posts = postService.getAllPosts();
-      model.addAttribute("posts", posts);
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
+    posts = postService.getAllPosts();
+    model.addAttribute("posts", posts);
+    model.addAttribute("localDate", LocalDate.now());
     return "homepage";
   }
 
