@@ -1,12 +1,30 @@
 package technicalblog.model;
 
+import java.time.LocalDate;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="posts")
 public class Post {
 
+  @Id
+  @Column(name = "id")
+  private Integer id;
+
+  @Column(name = "title")
   private String title;
+
+  @Column(name = "content")
   private String content;
-  private Date date;
+
+  @Column(name="date")
+  private LocalDate localDate;
+
+  @Column(name = "author")
   private String author;
 
   public String getAuthor() {
@@ -33,11 +51,11 @@ public class Post {
     this.content = content;
   }
 
-  public Date getDate() {
-    return date;
+  public LocalDate getDate() {
+    return localDate;
   }
 
-  public void setDate(Date date) {
-    this.date = date;
+  public void setDate(LocalDate date) {
+    this.localDate = date;
   }
 }

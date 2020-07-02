@@ -15,6 +15,7 @@
       <property name="javax.persistence.jdbc.password" value="kasper" />
 
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
+      <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
     </properties>
   </persistence-unit>
 
