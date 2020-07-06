@@ -7,8 +7,14 @@
 <div th:each="post : ${posts}">
   <h3 th:text="${post.title}"></h3>
   <i>Posted On</i>
-  <span>02-07-2020</span>
+  <span th:text="${#temporals.format(post.localDate, 'dd-MM-yyyy')}"></span>
   <p th:text="${post.content}"></p>
+  <div>
+    <a th:href="@{/posts/edit(postId=${post.id})}">Edit</a>
+    <form th:action="@{/posts/delete(postId=${post.id})}" th:method="delete">
+      <input type="submit" value="Delete" />
+    </form>
+  </div>
 </div>
 </body>
 </html>

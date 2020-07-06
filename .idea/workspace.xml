@@ -11,15 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4ccd1cb-2f4b-4b16-9419-bc75ae9e7b4b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/users/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/TechnicalBlogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/TechnicalBlogApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/controller/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/controller/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/model/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/repository/PostRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/technicalblog/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/posts.html" afterDir="false" />
     </list>
@@ -173,14 +172,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="684" y="354" width="609" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593607670760">
+    <state x="684" y="354" width="609" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593758798894">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="684" y="354" width="609" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1593607670760" />
-    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1592369560560">
+    <state x="684" y="354" width="609" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1593758798894" />
+    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1593775751669">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1592369560560" />
+    <state x="801" y="239" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1593775751669" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1592394361011">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

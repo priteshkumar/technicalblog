@@ -50,8 +50,24 @@ public class PostService {
     return postRepository.getUserPost();
   }
 
+  public Post getSinglePost(Integer postId){
+    return postRepository.getSinglePost(postId);
+  }
+
   public void savePost(Post post) {
     Post createdPost = postRepository.savePost(post);
     System.out.println(createdPost);
   }
+
+  public void updatePost(Integer postId,String author,Post post){
+    post.setId(postId);
+    post.setAuthor(author);
+    post.setLocalDate(LocalDate.now());
+    postRepository.updatePost(post);
+  }
+
+  public void deletePost(Integer postId){
+    postRepository.deletePost(postId);
+  }
+
 }

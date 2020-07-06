@@ -39,11 +39,18 @@ public class PostRepositoryImpl implements PostRepository {
     return query.setParameter("author", author).getResultList();
   }
 
-  public Post savePost(Post post){
+  @Override
+  public Post getSinglePost(Integer postId) {
+    EntityManager em = entityManagerFactory.createEntityManager();
+    Post post = em.find(Post.class, postId); // demo em.find() method
+    return post;
+  }
+
+  public Post savePost(Post post) {
     Post userPost = new Post();
     userPost.setTitle(post.getTitle());
     userPost.setContent(post.getContent());
-    userPost.setDate(LocalDate.now());
+    userPost.setLocalDate(LocalDate.now());
     userPost.setAuthor("mavixk");
 
     //begin transaction to update db
@@ -54,5 +61,26 @@ public class PostRepositoryImpl implements PostRepository {
     em.persist(userPost);
     entityTransaction.commit();
     return userPost;
+  }
+
+  public Post updatePost(Post post){
+/*    Post userPost = new Post();
+    userPost.setTitle(post.getTitle());
+    userPost.setContent(post.getContent());
+    userPost.setLocalDate(post.getLocalDate());
+    userPost.setAuthor(post.getAuthor());
+  */
+    //begin transaction to update db
+    //use transaction as a rule of thumb
+    EntityManager em = entityManagerFactory.createEntityManager();
+    EntityTransaction entityTransaction = em.getTransaction();
+    entityTransaction.begin();
+    em.merge(post);
+    entityTransaction.commit();
+    return post;
+  }
+
+  public void deletePost(Integer postId){
+
   }
 }

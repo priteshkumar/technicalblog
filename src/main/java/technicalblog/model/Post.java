@@ -30,6 +30,10 @@ public class Post {
   @Column(name = "author")
   private String author;
 
+  public Integer getId() {
+    return id;
+  }
+
   public String getAuthor() {
     return author;
   }
@@ -54,16 +58,20 @@ public class Post {
     this.content = content;
   }
 
-  public LocalDate getDate() {
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public LocalDate getLocalDate() {
     return localDate;
   }
 
-  public void setDate(LocalDate date) {
-    this.localDate = date;
+  public void setLocalDate(LocalDate localDate) {
+    this.localDate = localDate;
   }
 
   @Override
   public String toString(){
-    return this.id + " " + this.title + " " + this.author;
+    return this.id + " " + this.title + " \n" + this.content;
   }
 }

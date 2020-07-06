@@ -10,4 +10,10 @@ public interface PostRepository {
   List<Post> getUserPost();
 
   Post savePost(Post post);
+
+  Post getSinglePost(Integer postId);
+
+  Post updatePost(Post post);
+
+  void deletePost(Integer postId);
 }
