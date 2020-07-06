@@ -63,7 +63,7 @@ public class PostRepositoryImpl implements PostRepository {
     return userPost;
   }
 
-  public Post updatePost(Post post){
+  public Post updatePost(Post post) {
 /*    Post userPost = new Post();
     userPost.setTitle(post.getTitle());
     userPost.setContent(post.getContent());
@@ -80,7 +80,12 @@ public class PostRepositoryImpl implements PostRepository {
     return post;
   }
 
-  public void deletePost(Integer postId){
-
+  public void deletePost(Integer postId) {
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
+    EntityTransaction entityTransaction = entityManager.getTransaction();
+    entityTransaction.begin();
+    Post post = entityManager.find(Post.class, postId);
+    entityManager.remove(post);
+    entityTransaction.commit();
   }
 }
