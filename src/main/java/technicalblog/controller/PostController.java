@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import technicalblog.model.Category;
 import technicalblog.model.Post;
 import technicalblog.model.User;
 import technicalblog.service.PostService;
@@ -46,6 +47,18 @@ public class PostController {
   public String savePost(Post post, HttpSession httpSession) {
     User user = (User) httpSession.getAttribute("loggedUser");
     post.setUser(user);
+    if(post.getJavaBlog() != null){
+      System.out.println("javablog post");
+      Category category = new Category();
+      category.setCategory(post.getJavaBlog());
+      post.getCategories().add(category);
+    }
+    if(post.getSpringBlog() != null){
+      System.out.println("spring blog post");
+      Category category = new Category();
+      category.setCategory(post.getSpringBlog());
+      post.getCategories().add(category);
+    }
     postService.savePost(post);
     return "redirect:/posts";
   }

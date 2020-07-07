@@ -48,13 +48,13 @@ public class PostService {
   }
 
   public void savePost(Post post) {
+    post.setLocalDate(LocalDate.now());
     Post createdPost = postRepository.savePost(post);
     System.out.println(createdPost);
   }
 
   public void updatePost(Integer postId,Post post){
     post.setId(postId);
-    //post.setAuthor(author);
     post.setLocalDate(LocalDate.now());
     postRepository.updatePost(post);
   }

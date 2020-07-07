@@ -51,19 +51,19 @@ public class PostRepositoryImpl implements PostRepository {
   }
 
   public Post savePost(Post post) {
-    Post userPost = new Post();
+    /*Post userPost = new Post();
     userPost.setTitle(post.getTitle());
     userPost.setContent(post.getContent());
     userPost.setLocalDate(LocalDate.now());
-    userPost.setUser(post.getUser());
+    userPost.setUser(post.getUser());*/
     //begin transaction to update db
     //use transaction as a rule of thumb
     EntityManager em = entityManagerFactory.createEntityManager();
     EntityTransaction entityTransaction = em.getTransaction();
     entityTransaction.begin();
-    em.persist(userPost);
+    em.persist(post);
     entityTransaction.commit();
-    return userPost;
+    return post;
   }
 
   public Post updatePost(Post post) {
