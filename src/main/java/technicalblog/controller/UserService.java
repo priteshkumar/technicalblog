@@ -1,13 +1,21 @@
 package technicalblog.controller;
 
 import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import technicalblog.model.User;
+import technicalblog.repository.UserRepository;
 
 @Service
 public class UserService {
 
-  private HashMap<String, User> userMap = new HashMap<>();
+  //private HashMap<String, User> userMap = new HashMap<>();
+  private UserRepository userRepository;
+
+  @Autowired
+  public void setUserRepository(UserRepository userRepository){
+      this.userRepository = userRepository;
+  }
 
   public boolean checkUserCredsFormat(User user) {
     if (user.getUsername().length() < 4 || user.getUsername().length() > 30
@@ -21,19 +29,18 @@ public class UserService {
     if (!checkUserCredsFormat(user)) {
       return false;
     }
-    userMap.put(user.getUsername(), new User(user.getUsername(),
-        user.getPassword(), user.getFullname()));
+    userRepository.registerUser(user);
     return true;
   }
 
-  public boolean verifyUser(User user) {
-    return true;
-    /*User userCreds = userMap.get(user.getUsername()); //todo remove this later
-    if (userCreds == null || !userCreds.getPassword()
-        .equals(user.getPassword())) {
-      return false;
+  public User verifyUser(User user) {
+    //return true;
+    User verifedUser = userRepository.verifyUser(user);
+    if(verifedUser != null){
+      if(verifedUser.getPassword().equals(user.getPassword()))
+        return verifedUser;
     }
-    return true;*/
+    return null;
   }
 
 }

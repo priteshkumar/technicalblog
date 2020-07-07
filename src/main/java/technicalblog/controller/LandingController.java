@@ -2,6 +2,7 @@ package technicalblog.controller;
 
 import java.time.LocalDate;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import technicalblog.model.Post;
 import technicalblog.model.User;
+import technicalblog.model.UserProfile;
 import technicalblog.service.PostService;
 
 @Controller
@@ -36,12 +38,15 @@ public class LandingController {
     List<Post> posts = null;
     posts = postService.getAllPosts();
     model.addAttribute("posts", posts);
-    model.addAttribute("localDate", LocalDate.now());
     return "homepage";
   }
 
   @GetMapping("/users/registration")
-  public String getRegistrationView() {
+  public String getRegistrationView(Model model) {
+    User user = new User();
+    UserProfile userProfile = new UserProfile();
+    user.setUserProfile(userProfile);
+    model.addAttribute("user", user);
     return "users/register";
   }
 
@@ -62,11 +67,11 @@ public class LandingController {
 
   @RequestMapping(value = "/users/registration", method = RequestMethod.POST)
   public String registerUser(User user) {
-    System.out.println(user.getFullname() + " " + user.getUsername());
+    System.out.println(user.getUsername());
     if (!userService.registerUser(user)) {
       return "redirect:/users/registration";
     }
-    postService.addUserKey(user);
+    // postService.addUserKey(user);
     return "redirect:/users/login";
   }
 
@@ -80,20 +85,22 @@ public class LandingController {
    */
   @PostMapping("/users/login")
   public String getLoggedinView(@ModelAttribute User user,
-      RedirectAttributes ra) {
-    if (!userService.verifyUser(user)) {
+      RedirectAttributes ra, HttpSession httpSession) {
+
+    User verifiedUser = userService.verifyUser(user);
+    if (verifiedUser == null) {
       //  System.out.println("add invalidauth");
       ra.addFlashAttribute("invalidAuth", Boolean.valueOf(true));
       return "redirect:/users/login";
     }
-
-    //ra.addAttribute("username", user.getUsername());
-    ra.addFlashAttribute("username", user.getUsername());
+    //ra.addFlashAttribute("username", user.getUsername());
+    httpSession.setAttribute("loggedUser", verifiedUser);
     return "redirect:/posts";
   }
 
   @GetMapping("/users/logout")
-  public String logoutUser() {
+  public String logoutUser(HttpSession httpSession) {
+    httpSession.invalidate();//invalidate httpsession
     return "redirect:/";
   }
 }

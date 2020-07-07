@@ -15,13 +15,11 @@ import technicalblog.repository.PostRepository;
 @Service
 public class PostService {
 
-  private HashMap<String, List<Post>> userPosts;
   private PostRepository postRepository;
 
   @Autowired
   public PostService(PostRepository postRepository) {
     this.postRepository = postRepository;
-    this.userPosts = new HashMap<>();
     System.out.println("#####instantiating###### " + this.getClass().getName());
   }
 
@@ -36,11 +34,6 @@ public class PostService {
       e.printStackTrace();
     }*/
   }
-
-  public void addUserKey(User user) {
-    this.userPosts.put(user.getUsername(), new LinkedList<Post>());
-  }
-
 
   public List<Post> getAllPosts() {
     return postRepository.getAllPosts();
@@ -59,9 +52,9 @@ public class PostService {
     System.out.println(createdPost);
   }
 
-  public void updatePost(Integer postId,String author,Post post){
+  public void updatePost(Integer postId,Post post){
     post.setId(postId);
-    post.setAuthor(author);
+    //post.setAuthor(author);
     post.setLocalDate(LocalDate.now());
     postRepository.updatePost(post);
   }
@@ -69,5 +62,4 @@ public class PostService {
   public void deletePost(Integer postId){
     postRepository.deletePost(postId);
   }
-
 }

@@ -30,13 +30,17 @@ public class PostRepositoryImpl implements PostRepository {
   @Override
   public List<Post> getUserPost() {
     EntityManager em = entityManagerFactory.createEntityManager();
-    Post post = em.find(Post.class, 1); // demo em.find() method
+   // Post post = em.find(Post.class, 1); // demo em.find() method
 
     //use query parameters for security
-    TypedQuery<Post> query = em.createQuery(
+    /*TypedQuery<Post> query = em.createQuery(
         "SELECT p FROM Post p WHERE p.author = :author", Post.class);
     String author = "mavixk";
-    return query.setParameter("author", author).getResultList();
+    return query.setParameter("author", author).getResultList();*/
+    TypedQuery<Post> query = em.createQuery("SELECT p from Post p", Post.class);
+    List<Post> allPosts = query.getResultList();
+    return allPosts;
+
   }
 
   @Override
@@ -51,8 +55,7 @@ public class PostRepositoryImpl implements PostRepository {
     userPost.setTitle(post.getTitle());
     userPost.setContent(post.getContent());
     userPost.setLocalDate(LocalDate.now());
-    userPost.setAuthor("mavixk");
-
+    userPost.setUser(post.getUser());
     //begin transaction to update db
     //use transaction as a rule of thumb
     EntityManager em = entityManagerFactory.createEntityManager();
@@ -64,12 +67,6 @@ public class PostRepositoryImpl implements PostRepository {
   }
 
   public Post updatePost(Post post) {
-/*    Post userPost = new Post();
-    userPost.setTitle(post.getTitle());
-    userPost.setContent(post.getContent());
-    userPost.setLocalDate(post.getLocalDate());
-    userPost.setAuthor(post.getAuthor());
-  */
     //begin transaction to update db
     //use transaction as a rule of thumb
     EntityManager em = entityManagerFactory.createEntityManager();

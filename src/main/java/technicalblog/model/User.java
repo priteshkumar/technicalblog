@@ -1,10 +1,17 @@
 package technicalblog.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -12,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(
     name = "users",
-    uniqueConstraints =  @UniqueConstraint(
+    uniqueConstraints = @UniqueConstraint(
         name = "user_credentials",
         columnNames = {
             "username",
@@ -35,9 +42,13 @@ public class User {
   @NotNull
   private String password;
 
-  @Column(name = "fullname")
-  @NotNull
-  private String fullname;
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @JoinColumn(name = "profile_id")
+  //@Transient
+  private UserProfile userProfile;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+  private List<Post> posts = new ArrayList<>();
 
   public User() {
   }
@@ -45,7 +56,6 @@ public class User {
   public User(String username, String password, String fullname) {
     this.username = username;
     this.password = password;
-    this.fullname = fullname;
   }
 
   public String getUsername() {
@@ -64,11 +74,27 @@ public class User {
     this.password = password;
   }
 
-  public String getFullname() {
-    return fullname;
+  public Integer getId() {
+    return id;
   }
 
-  public void setFullname(String fullname) {
-    this.fullname = fullname;
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public UserProfile getUserProfile() {
+    return userProfile;
+  }
+
+  public void setUserProfile(UserProfile userProfile) {
+    this.userProfile = userProfile;
+  }
+
+  public List<Post> getPosts() {
+    return posts;
+  }
+
+  public void setPosts(List<Post> posts) {
+    this.posts = posts;
   }
 }

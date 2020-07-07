@@ -1,5 +1,6 @@
 package technicalblog.controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import technicalblog.model.Post;
+import technicalblog.model.User;
 import technicalblog.service.PostService;
 
 /**
@@ -27,10 +29,10 @@ public class PostController {
   private PostService postService;
 
   @GetMapping("/posts")
-  public String getUserPosts(@ModelAttribute("username") String username,
-      Model model) {
-    model.addAttribute("username", username);
-    model.addAttribute("posts", postService.getUserPosts(username));
+  public String getUserPosts(Model model, HttpSession httpSession) {
+    //model.addAttribute("username", username);
+    User loggedUser = (User) httpSession.getAttribute("loggedUser");
+    model.addAttribute("posts", postService.getUserPosts(loggedUser.getUsername()));
     return "users/posts";
   }
 
@@ -41,9 +43,10 @@ public class PostController {
   }
 
   @PostMapping("/posts/create")
-  public String savePost(Post post, RedirectAttributes ra) {
+  public String savePost(Post post, HttpSession httpSession) {
+    User user = (User) httpSession.getAttribute("loggedUser");
+    post.setUser(user);
     postService.savePost(post);
-    ra.addFlashAttribute("username", "mavixk");
     return "redirect:/posts";
   }
 
@@ -56,22 +59,21 @@ public class PostController {
 
   @PutMapping("/posts/edit")
   public String updatePost(@RequestParam(name = "postId") Integer postId,
-      @RequestParam(name = "author") String author,
-      @ModelAttribute Post post, RedirectAttributes ra) {
+      @ModelAttribute Post post, HttpSession httpSession) {
     System.out.println("update post method");
-    System.out.println(postId + " \n" + author + "\n" + post);
-    postService.updatePost(postId, author, post);
-    ra.addFlashAttribute("username", "mavixk");
+    System.out.println(postId + "\n" + post);
+    User user = (User) httpSession.getAttribute("loggedUser");
+    post.setUser(user);
+    postService.updatePost(postId, post);
+    //ra.addFlashAttribute("username", "mavixk");
     return "redirect:/posts";
   }
 
   @DeleteMapping("/posts/delete")
-  public String deletePost(@RequestParam(name = "postId") Integer postId,
-      RedirectAttributes ra) {
+  public String deletePost(@RequestParam(name = "postId") Integer postId) {
     System.out.println("delete post method");
     System.out.println(postId);
     postService.deletePost(postId);
-    ra.addFlashAttribute("username", "mavixk");
     return "redirect:/posts";
   }
 }

@@ -3,7 +3,7 @@
 <head th:replace="fragments/layout :: site-head"></head>
 <header th:replace="fragments/layout :: logged-in"></header>
 <body>
-<h1 th:text="'Welcome ' + ${username} + ' Your Tech Posts!'"></h1>
+<h1 th:text="'Welcome ' + ${session.loggedUser.userProfile.fullName} + ' Your Tech Posts!'"></h1>
 <div th:each="post : ${posts}">
   <h3 th:text="${post.title}"></h3>
   <i>Posted On</i>
